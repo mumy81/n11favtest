@@ -22,5 +22,5 @@ n11.com Ürün Araması'ndan ulaşılan Ürünlerin Favorilerim'e eklenip kaldı
  */
 * KURULUM : Dosyaları ya Eclipse IDE ' ye Import ederek veya Maven ile install ederek çalıştırabilirsiniz.
 * Bir klasöre pom.xml , src klaösrü ve geckodriver.exe yi yerleştirin.
-* maven kurulu olması şartıyla,  "mvn -install" komutuyla pom.xml ' nin bulunduğu klaösrü içinde target klasörü altında           *"-jar-with-dependencies" etiketiyle çalıştırabilir bir .jar oluşturulur.  
+* maven kurulu olması şartıyla,  "mvn -install" komutuyla pom.xml ' nin bulunduğu klaösrü içinde target klasörü altında           "-jar-with-dependencies" etiketiyle çalıştırabilir bir .jar oluşturulur.  
 * "java -jar target/n11favtest-1-jar-with-dependencies.jar"  komutuyla çalıştırılır.
