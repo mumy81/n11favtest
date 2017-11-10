@@ -1,10 +1,9 @@
 # automationtest project
 n11.com Ürün Araması'ndan ulaşılan Ürünlerin Favorilerim'e eklenip kaldırıldığını test eden otomasyon
 
-/*  Name 	   : n11.com Favorilerim,Ürün Favorilere Ekleme ve Kaldırma Test Otomasyonu
-
- *  Description: Bu class ile http://www.n11.com ' da uygun email ve parola ileüye girişi yapılır
- *  ve verilen kelimede arama yapılır. 2. sayfadaki 3. ürünün favori ekle butonuna basılır.
+ Name 	   : n11.com Favorilerim,Ürün Favorilere Ekleme ve Kaldırma Test Otomasyonu
+ Description: Bu class ile http://www.n11.com ' da uygun email ve parola ileüye girişi yapılır
+ *  Verilen kelimede arama yapılır. 2. sayfadaki 3. ürünün favori ekle butonuna basılır.
  *  Favori Butonuna basılan ürünün div id ' sinde ürün idsi bulunur , bu id saklanır.
  *  Daha sonra favorilerim sayfasına gitmek için iki defa hover tıklama yapılır.
  *  ve Favorilerim sayfası açılır. Favorilere eklenen ürünün ID ' sine göre kontrol yapılır.
