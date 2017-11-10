@@ -11,6 +11,10 @@ n11.com Ürün Araması'ndan ulaşılan Ürünlerin Favorilerim'e eklenip kaldı
  *  Ürünün Favorilerim'de olduğu onaylanır. Daha sonra "Sil" linkiyle Favorilerim'den silinir.
  *  Tekrar Favorilerim listesi kontrol edilerek ürünün kaldırıldığına dair onay verilir. 
  * 
+ *  NOT: Şuan sadece samsung kelimeside bu testi gerçekleştiriyor. Bu kelimede üstte promosyon ürünleri gösterildiği için 
+ *  XPath ' leri ona göre ayarlamıştım. Diğer aramalarda da bu testi gerçekleştirmesi için <section>  ve <li> tagları ile 
+ *  findElementBy methodu kullarak yeni bir yöntem geliştiriyorum. Vakit yetişmedi o yüzden bu versiyonda ekleyemedim.
+ *
  *  ÖNEMLİ !
  *  Hover eylelmleri sırasında Firefox açık iken mouse hiç hareket ettirilmemesi gerekli!
  * 
