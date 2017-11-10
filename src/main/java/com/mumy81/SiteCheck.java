@@ -7,7 +7,8 @@
  *  Ürünün Favorilerim'de olduðu onaylanýr. Daha sonra "Sil" linkiyle Favorilerim'den silinir.
  *  Tekrar Favorilerim listesi kontrol edilerek ürünün kaldýrýldýðýna dair onay verilir. 
  * 
- * 
+ *  ÖNEMLÝ !
+ *  Hover eylelmleri sýrasýnda Firefox açýk iken mouse hiç hareket ettirilmemesi gerekli!
  * 
  * 
  */
