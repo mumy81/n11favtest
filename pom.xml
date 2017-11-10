@@ -4,7 +4,7 @@
   <artifactId>n11favtest</artifactId>
   <version>1</version>
   <name>n11.com Favorilerim Testi</name>
-  <description>n11.com'daki ürünlerin favorilere eklenmesi ve kaldırılması testi</description>
+  <description>n11.com'da arama sonrası favorilere eklenmesi ve kaldırılması testi</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
