@@ -1,17 +1,17 @@
-/*  Name 	   : n11.com Favorilerim,Ürün Favorilere Ekleme ve Kaldýrma Test Otomasyonu
- *  Description: Bu class ile http://www.n11.com ' da uygun email ve parola ile üye giriþi yapýlýr
- *  ve verilen kelimede arama yapýlýr. 2. sayfadaki 3. ürünün favori ekle butonuna basýlýr.
- *  Favori Butonuna basýlan ürünün div id ' sinde ürün idsi bulunur , bu id saklanýr.
- *  Daha sonra favorilerim sayfasýna gitmek için iki defa hover týklama yapýlýr.
- *  ve Favorilerim sayfasý açýlýr. Favorilere eklenen ürünün ID ' sine göre kontrol yapýlýr.
- *  Ürünün Favorilerim'de olduðu onaylanýr. Daha sonra "Sil" linkiyle Favorilerim'den silinir.
- *  Tekrar Favorilerim listesi kontrol edilerek ürünün kaldýrýldýðýna dair onay verilir. 
+/*  Name 	   : n11.com Favorilerim,Urun Favorilere Ekleme ve Kaldirma Test Otomasyonu
+ *  Description: Bu class ile http://www.n11.com ' da uygun email ve parola ile uye girisi yapilir
+ *  ve verilen kelimede arama yapilir. 2. sayfadaki 3. urunun favori ekle butonuna basilir.
+ *  Favori Butonuna basilan urunun div id ' sinde urun idsi bulunur , bu id saklanir.
+ *  Daha sonra favorilerim sayfasina gitmek için iki defa hover tiklama yapilir.
+ *  ve Favorilerim sayfasi açilir. Favorilere eklenen urunun ID ' sine göre kontrol yapilir.
+ *  Urunun Favorilerim'de oldugu onaylanir. Daha sonra "Sil" linkiyle Favorilerim'den silinir.
+ *  Tekrar Favorilerim listesi kontrol edilerek urunun kaldirildigina dair onay verilir. 
  *  
- *  NOT : Þuan sadece samsung kelimesinde çalýþýyor yapýyor, bir dahaki güncellemede verilen herhangi
- *  bir kelimede çalýþacak hale gelecek. Üzerinde çalýþýyorum.
+ *  NOT : Þuan samsung kelimesinde dýsýnda çalýsmayabilirr, bir dahaki guncellemede verilen herhangi
+ *  bir kelimede çalisacak hale gelecek. Vakit yetismedigi icin boyle kaldi.
  * 
  *  ÖNEMLÝ !
- *  Hover eylelmleri sýrasýnda Firefox açýk iken mouse hiç hareket ettirilmemesi gerekli!
+ *  Hover eylemleri sirasinda Firefox açik iken mouse hiç hareket ettirilmemesi gerekli!
  * 
  * 
  */
@@ -36,20 +36,20 @@ import org.openqa.selenium.interactions.internal.Coordinates;
 import org.openqa.selenium.interactions.internal.Locatable;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-// JUnit ' in testleri alfabeti artan sýraya göre sürmesi yukarýdaki satýrla
-// saðlanýr.
+// JUnit ' in testleri alfabeti artan siraya göre surmesi yukaridaki satirla
+// saglanir.
 public class SiteCheck {
 
 	@Rule
-	// Bu satýrla @Test lerin timeout süreleri 15 sn olarak ayarlanýr
+	// Bu satirla @Test lerin timeout sureleri 15 sn olarak ayarlanir
 	public Timeout timeout = new Timeout(15, TimeUnit.SECONDS);
 
 	private static WebDriver driver;
-	// Ürün div'inin idsi , içinde ürün kendine has IDsi bulunuyor
-	// Alttaki 2 deðiþken, birden fazla methodda kullanýldýðýndan class içinde
-	// tanýmlanmýþtýr.
+	// Urun div'inin idsi , içinde urun kendine has IDsi bulunuyor
+	// Alttaki 2 degisken, birden fazla methodda kullanildigindan class içinde
+	// tanimlanmistir.
 	private static String favProDivID;
-	private static WebElement favProDiv; // Ürün Div WebElement'i
+	private static WebElement favProDiv; // Urun Div WebElement'i
 	private static String url, email, password, keyword, page;
 	private static int product;
 
@@ -58,9 +58,9 @@ public class SiteCheck {
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		firefoxOptions.setCapability("version", "latest");
 		firefoxOptions.setCapability("platform", Platform.WINDOWS);
-		firefoxOptions.setCapability("name", "Testing n11 Favori Butonu ve Favori Kaldýrma ");
+		firefoxOptions.setCapability("name", "Testing n11 Favori Butonu ve Favori Kaldirma ");
 
-		// Konsoldan program printlerinin daha kolay okunmasý için loglarý kapattým
+		// Konsoldan program printlerinin daha kolay okunmasi için loglari kapattim
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
 		SiteCheck.driver = new FirefoxDriver(firefoxOptions);
@@ -93,7 +93,7 @@ public class SiteCheck {
 	
 	
 	@Test
-	// WebDriver'ý kapatýr
+	// WebDriver'i kapatir
 	public void test11_quitDriver() throws Exception {
 		driver.quit();
 	}
@@ -106,41 +106,41 @@ public class SiteCheck {
 	// verilen url'ye yani http://www.n11.com ' u browserda getirir
 	public void test02_goURL() throws Exception {
 		driver.get(url);
-		Assert.assertEquals(url + "adresine giriþ baþarýsýz", driver.getTitle(), "n11.com - Alýþveriþin Uðurlu Adresi");
-        System.out.println(driver.getCurrentUrl() + " adresine giriþ yapýldý.");
+		Assert.assertEquals(url + "adresine giris basarisiz", driver.getTitle(), "n11.com - Alisverisin Ugurlu Adresi");
+        System.out.println(driver.getCurrentUrl() + " adresine giris yapildi.");
 	}
 
 	@Test
-	// EMail ve Parola ile giriþ yapar
+	// EMail ve Parola ile giris yapar
 	public void test03_Login() throws Exception {
 
-		driver.findElement(By.linkText("Giriþ Yap")).click();
+		driver.findElement(By.linkText("Giris Yap")).click();
 		driver.findElement(By.id("email")).sendKeys(email);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.id("loginButton")).click();
 
-		Assert.assertNotEquals("Üye giriþinde hata oluþtu", driver.getCurrentUrl(), "https://www.n11.com/giris-yap");
+		Assert.assertNotEquals("Uye girisinde hata olustu", driver.getCurrentUrl(), "https://www.n11.com/giris-yap");
 
-		System.out.println("Üye giriþi yapýldý");
+		System.out.println("Uye girisi yapildi");
 
 	}
 
 	@Test
-	// Verilen kelimede arama yapar. Kelime class'ýn en baþýndan deðiþtirebilir
+	// Verilen kelimede arama yapar. Kelime class'in en basindan degistirebilir
 	public void test04_Search() throws Exception {
 
 		driver.findElement(By.id("searchData")).sendKeys(keyword);
 		driver.findElement(By.className("searchBtn")).click();
 
-		Assert.assertEquals("Arama gerçekleþirken hata oluþtu.", "https://www.n11.com/arama?q=" + keyword,
+		Assert.assertEquals("Arama gerçeklesirken hata olustu.", "https://www.n11.com/arama?q=" + keyword,
 				driver.getCurrentUrl());
 
-		System.out.println(keyword + " aramasý baþarýyla yapýldý.");
+		System.out.println(keyword + " aramasi basariyla yapildi.");
 
 	}
 
-	// Ekraný WebElement ' in koordinatlarýna getirir
-	// Hover linklere týklarken gerekli oluyor
+	// Ekrani WebElement ' in koordinatlarina getirir
+	// Hover linklere tiklarken gerekli oluyor
 	public void setCoor(By loc) {
 		WebElement elm = driver.findElement(loc);
 		Coordinates coordinate = ((Locatable) elm).getCoordinates();
@@ -149,8 +149,8 @@ public class SiteCheck {
 
 	}
 
-	// Mouse'u parametlerde verilen ilk WebElement'in üstüne getirir ve ikinci
-	// WebElement'e týklar
+	// Mouse'u parametlerde verilen ilk WebElement'in ustune getirir ve ikinci
+	// WebElement'e tiklar
 	public void hoverClick(By loc1, By loc2) {
 
 		try {
@@ -159,7 +159,7 @@ public class SiteCheck {
 			// String previousURL = driver.getCurrentUrl();
 			// WebDriverWait wait = new WebDriverWait(driver, 10);
 
-			System.out.println("Hover eylemi gerçekleþirken mouse'u hareket ettirmeyiniz");
+			System.out.println("Hover eylemi gerçeklesirken mouse'u hareket ettirmeyiniz");
 			builder.moveToElement(driver.findElement(loc1)).moveToElement(driver.findElement(loc2)).click().perform();
 			// WebDriverWait wait = new WebDriverWait(driver, 2);
 			// wait.until(ExpectedConditions.elementToBeClickable(loc2));
@@ -170,20 +170,20 @@ public class SiteCheck {
 	}
 
 	@Test
-	// Aramadan sonraki ürün listelemede verilen numaralý sayfaya gider
+	// Aramadan sonraki urun listelemede verilen numarali sayfaya gider
 	public void test05_goToPage() throws Exception {
 		driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[2]/div[3]/a[" + page + "]")).click();
-		Assert.assertEquals("Ýstenilen sayfa açýlamadý.",
+		Assert.assertEquals("Ýstenilen sayfa açilamadi.",
 				driver.findElement(By.name("currentPage")).getAttribute("value"), page);
-		System.out.println("Ürün aramada " + page + " . sayfa þuan açýk halde.");
+		System.out.println("Urun aramada " + page + " . sayfa suan açik halde.");
 
 	}
 
 	@Test
-	// Arama listelemesinde sýrasý verilen ürünün favori butonuna týklar
+	// Arama listelemesinde sirasi verilen urunun favori butonuna tiklar
 	public void test06_clickFavBtn() throws Exception {
-		// Favori butonununa ve ürün ID sine xPath yoluyla ulaþýr
-		// ve verilen sýaradaki ürünün ID'sini saklar ve favori butonuna týklar.
+		// Favori butonununa ve urun ID sine xPath yoluyla ulasir
+		// ve verilen siaradaki urunun ID'sini saklar ve favori butonuna tiklar.
 		String ProXPath = "/html/body/div[1]/div/div/div/div[2]/section[2]/div[2]/ul/li[" + product + "]/div";
 
 		WebElement ProDiv = driver.findElement(By.xpath(ProXPath));
@@ -194,8 +194,8 @@ public class SiteCheck {
 	}
 
 	@Test
-	// Favorilerim sayfasýna direk link yok , bu yüzden hover menüden önce
-	// Ýstek Listem'e oradan da yine hover linkten Favorilerim'e týklanýr
+	// Favorilerim sayfasina direk link yok , bu yuzden hover menuden önce
+	// Ýstek Listem'e oradan da yine hover linkten Favorilerim'e tiklanir
 	public void test07_openMyFavList() throws Exception {
 
 		hoverClick(By.className("myAccountHolder"), By.linkText("Ýstek Listem"));
@@ -205,44 +205,44 @@ public class SiteCheck {
 	}
 
 	@Test
-	// Favori listesinde verilen ürünün olduðunu/olmadýðýný test eder
+	// Favori listesinde verilen urunun oldugunu/olmadigini test eder
 	public void test08_checkExistFavPro() throws Exception {
 
 		try {
 			favProDiv = driver.findElement(By.id(favProDivID));
-			Assert.assertTrue("Favori listesinde ilgili ürün bulunamadý", favProDiv.isDisplayed());
-			System.out.println("Ürün favorilerim listesinde.");
+			Assert.assertTrue("Favori listesinde ilgili urun bulunamadi", favProDiv.isDisplayed());
+			System.out.println("Urun favorilerim listesinde.");
 		} catch (org.openqa.selenium.NoSuchElementException e) {
-			Assert.fail("Ürün favorilerim listesinde artýk bulunmuyor");
-			// System.out.println("Ürün favorilerim listesinde artýk bulunmuyor");
+			Assert.fail("Urun favorilerim listesinde artik bulunmuyor");
+			// System.out.println("Urun favorilerim listesinde artik bulunmuyor");
 		}
 
 	}
 
 	@Test
-	// Ürün favorilerimden silindikten sonra, ürüün artýk favorilerimde
-	// olmadýðýný kontrol eden method.
+	// Urun favorilerimden silindikten sonra, uruun artik favorilerimde
+	// olmadigini kontrol eden method.
 	public void test10_checkNotExistFavPro() throws Exception {
 
 		try {
 			/*
-			 * Burada iþlem bekleme süresini 0.1 sn indiriyoruz , böylece ürünün div ' ini
-			 * bulamadýðýnda beklemeden iþleme devam ediyor. Daha sonra iþlem bekleme
-			 * süresini tekrar 10 sn'ye çýkarýyoruz
+			 * Burada islem bekleme suresini 0.1 sn indiriyoruz , böylece urunun div ' ini
+			 * bulamadiginda beklemeden isleme devam ediyor. Daha sonra islem bekleme
+			 * suresini tekrar 10 sn'ye çikariyoruz
 			 */
 			driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
 			favProDiv = driver.findElement(By.id(favProDivID));
-			Assert.assertTrue("Favori listesinde ilgili ürün bulunamadý", favProDiv.isDisplayed());
-			System.out.println("Ürün hala favorilerim listesinde.");
+			Assert.assertTrue("Favori listesinde ilgili urun bulunamadi", favProDiv.isDisplayed());
+			System.out.println("Urun hala favorilerim listesinde.");
 		} catch (org.openqa.selenium.NoSuchElementException e) {
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			System.out.println("Ürün artýk favorilerim listesinde bulunmuyor.");
-			System.out.println("Test baþarýlý.");
+			System.out.println("Urun artik favorilerim listesinde bulunmuyor.");
+			System.out.println("Test basarili.");
 		}
 	}
 
 	@Test
-	// Ürünü favorilerim listesinden silmek için "Sil" linkine týklar
+	// Urunu favorilerim listesinden silmek için "Sil" linkine tiklar
 	public void test09_removeFavPro() throws Exception {
 		favProDiv.findElement(By.className("deleteProFromFavorites")).click();
 		driver.navigate().refresh();
@@ -251,11 +251,11 @@ public class SiteCheck {
 	public static void main(String[] args) throws Exception {
 
 		/*
-		 * Eclipse IDE kullanýldýðýnda test00_ þeklinde baþlayan methodlar Eclipse
-		 * içindeki JUnit ile sýrayla sürülür. Maven ile oluþturulan executable jar ile
-		 * testlerin gerçekleþmesi kolay olmasý için main method un içinde sýrayla test
-		 * object oluþturup methodlarýný çaðýrdým. Otomasyon testinin ne þekilde
-		 * sürüleceðini bilmediðim için bu þekilde de denedim.
+		 * Eclipse IDE kullanildiginda test00_ seklinde baslayan methodlar Eclipse
+		 * içindeki JUnit ile sirayla surulur. Maven ile olusturulan executable jar ile
+		 * testlerin gerçeklesmesi kolay olmasi için main method un içinde sirayla test
+		 * object olusturup methodlarini çagirdim. Otomasyon testinin ne sekilde
+		 * surulecegini bilmedigim için bu sekilde de denedim.
 		 */
 
 		SiteCheck n11 = new SiteCheck();
@@ -271,7 +271,6 @@ public class SiteCheck {
 		n11.test09_removeFavPro();
 		n11.test10_checkNotExistFavPro();
 		n11.test11_quitDriver();
-
 	} 
 
 }
