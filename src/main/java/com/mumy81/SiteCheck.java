@@ -66,8 +66,8 @@ public class SiteCheck {
 	public void setupSite() {
 
 		setURL("http://www.n11.com");
-		setUser("muhammedcelik@gmail.com1", "n11deneme");
-		setInputs("samsung", "2", 3);
+		setUser("muhammedcelik@gmail.com", "n11deneme");
+		setInputs("samsung", "2", 4);
 	}
 
 	public void setURL(String url) {
@@ -100,7 +100,7 @@ public class SiteCheck {
 		driver.get(url);
 
 		try {
-			Assert.assertEquals(url + "adresine giris basarisiz", driver.getCurrentUrl(),"https://www.n11.com/");
+			Assert.assertEquals(url + "adresine giris basarisiz", driver.getCurrentUrl(), "https://www.n11.com/");
 
 			System.out.println("Siteye giris yapildi: https://www.n11.com");
 		} catch (AssertionError e) {
@@ -125,9 +125,9 @@ public class SiteCheck {
 
 			System.out.println("Uye girisi yapildi: " + email);
 		} catch (AssertionError e) {
-			System.out.println("Uye girisinde hata olustu.");
-			System.out.println(e);
 			this.close();
+			Assert.fail("Uye girisinde hata");
+			
 		}
 
 	}
@@ -139,14 +139,15 @@ public class SiteCheck {
 		driver.findElement(By.className("searchBtn")).click();
 
 		try {
-			Assert.assertEquals("Arama gerceklesirken hata olustu.", "https://www.n11.com/arama?q=" + keyword,driver.getCurrentUrl());
+			Assert.assertEquals("Arama gerceklesirken hata olustu.", "https://www.n11.com/arama?q=" + keyword,
+					driver.getCurrentUrl());
 
 			System.out.println(keyword + " aramasi basariyla yapildi.");
 
 		} catch (AssertionError e) {
-			System.out.println("Aramada yaparken hata olustu: " + keyword);
-			System.out.println(e);
 			this.close();
+			Assert.fail("Aramada yaparken hata olustu: " + keyword);
+			
 		}
 
 	}
@@ -186,7 +187,7 @@ public class SiteCheck {
 			System.out.println("Hover tiklama yaparken hata olustu.");
 			System.out.println(e);
 			this.close();
-		}
+			}
 	}
 
 	// Aramadan sonraki urun listelemede verilen numarali sayfaya gider
@@ -205,9 +206,10 @@ public class SiteCheck {
 			System.out.println("Urun aramada " + page + " . sayfa suan acik halde.");
 
 		} catch (AssertionError e) {
-			System.out.println("Sayfaya giderken hata olustu.: " + page);
-			System.out.println(e);
 			this.close();
+			System.out.println(e);
+			Assert.fail("Sayfaya giderken hata olustu.: " + page);
+			
 		}
 	}
 
@@ -231,10 +233,10 @@ public class SiteCheck {
 	// Favorilerim sayfasina direk link yok , bu yuzden hover menuden once
 	// Istek Listem'e oradan da yine hover linkten Favorilerim'e tiklanir
 	public void openMyFavList() throws Exception {
-
-		hoverClick(By.className("myAccountHolder"), By.linkText("Ýstek Listem"));
-		hoverClick(By.className("favorites"), By.linkText("FAVORÝLERE GÝT"));
-	}
+			
+			hoverClick(By.className("myAccountHolder"), By.linkText("Ýstek Listem"));
+			hoverClick(By.className("favorites"), By.linkText("FAVORÝLERE GÝT"));
+		}
 
 	// Favori listesinde verilen urunun olduðunu/olmadiðini test eder
 	public void checkExistFavPro() {
@@ -244,18 +246,19 @@ public class SiteCheck {
 			Assert.assertTrue("Favori listesinde ilgili urun bulunamadi", favProDiv.isDisplayed());
 			System.out.println("Urun favorilerim listesinde.");
 		} catch (org.openqa.selenium.NoSuchElementException e) {
-			Assert.fail("Urun favorilerim listesinde bulunuyor");
 			this.close();
-			}
+			Assert.fail("Urun favorilerim listesinde bulunamadý");
+			
+		}
 
 	}
 
 	// Urun favorilerimden silindikten sonra, uruun artik favorilerimde
 	// olmadiðini kontrol eden method.
 	public void checkNotExistFavPro() {
-			
+
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
-		
+
 		try {
 			/*
 			 * Burada islem bekleme suresini 0.1 sn indiriyoruz , boylece urunun div ' ini
@@ -266,20 +269,20 @@ public class SiteCheck {
 			Assert.assertTrue("Favori listesinde ilgili urun bulunamadi", favProDiv.isDisplayed());
 			System.out.println("Urun hala favorilerim listesinde.");
 		} catch (org.openqa.selenium.NoSuchElementException e) {
-			
+
 			System.out.println("Urun artik favorilerim listesinde bulunmuyor.");
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			
+
 	}
 
 	// Urunu favorilerim listesinden silmek icin "Sil" linkine tiklar
 	public void removeFavPro() {
-	
+
 		favProDiv.findElement(By.className("deleteProFromFavorites")).click();
 		driver.navigate().refresh();
-			
+
 	}
 
 }

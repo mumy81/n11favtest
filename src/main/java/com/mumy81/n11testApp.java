@@ -16,7 +16,7 @@ public class n11testApp {
 		// n11.test01_setupSite();
 		n11.setURL("http://www.n11.com");
 		n11.setUser("muhammedcelik@gmail.com","n11deneme");
-		n11.setInputs("samsung", "2", 3); // parametreler : kelime, sayfa, ürün sýrasý
+		n11.setInputs("samsung", "2", 4); // parametreler : kelime, sayfa, ürün sýrasý
 		n11.goURL();
 		n11.Login();
 		n11.Search();
