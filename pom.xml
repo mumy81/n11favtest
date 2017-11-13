@@ -18,7 +18,7 @@
       <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>libs/</classpathPrefix>
-            <mainClass>main.java.com.mumy81.SiteCheck</mainClass>
+            <mainClass>main.java.com.mumy81.n11testApp</mainClass>
       </manifest>
     </archive>
     
