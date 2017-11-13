@@ -38,10 +38,12 @@ n11.com Ürün Araması'ndan ulaşılan ürünlerin Favorilerim'e eklenip kaldı
  * 
  *  Favorilerim sayfasi acilirken, hoverClick methodu kullanilir, bu methodun icinde browserin gorunmez yapilmasi icin
  *  gerekli webdriver.manage ayarlari degistirelerek hover tiklamalar yapilirken browser gorunmez hale getirebilir.
- *  Fakat Hover eylelmleri sırasında Firefox açık iken mouse hiç hareket ettirilmemesi gerekli!
+ *  Fakat Hover tiklamalari sırasında Firefox açık iken mouse hiç hareket ettirilmemesi gerekli!
  * 
- * 
- *
+     n11testApp.java  --> Uygulamanın çalışması icin main() method bulunduran dosya
+     SiteCheck.java ---> İşlemleri yapan class ve methodları barındıran dosya
+     TestSiteCheck.java --> SiteCheck classının JUnit @Testlerini içinde bulunduran dosya
+      
   # KURULUM : Dosyalar Eclipse IDE ' ye Import edilerek veya Maven ile install ederek calisabilir.
  * Bir klasöre 1. pom.xml , 2. "src" klaösrü ve 3. "geckodriver.exe" yi yerleştirin.
  * maven kurulu olması şartıyla,  "mvn -install" komutuyla pom.xml ' nin bulunduğu  klasörü içinde target klasörünün altında   
