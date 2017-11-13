@@ -24,7 +24,7 @@ n11.com Ürün Araması'ndan ulaşılan ürünlerin Favorilerim'e eklenip kaldı
  Name 	   : n11.com Favorilerim,Ürün Favorilere Ekleme ve Kaldırma Test Otomasyonu
  
  Description: Bu otomasyon testi ile http://www.n11.com ' da uygun email ve parola ile üye girişi yapılır
- *  Verilen kelimede arama yapılır. 2. sayfadaki 3. ürünün favori ekle butonuna basılır.
+ *  Verilen kelimede arama yapılır. 2. sayfadaki 4. ürünün favori ekle butonuna basılır.
  *  Favori Butonuna basılan ürünün div id ' sinde ürün idsi bulunur , bu id saklanır.
  *  Case Study ödevinde 7.madde belirtilen en üstteki favorilerim linki bulunmamakta, Favorilerim ' e girmek için
  *  Hesabım'ın altında bulunan İstek Listem'e oradan da Favorilerim listesinin içindeki Favorilerim'e Git linkine tıklayarak
