@@ -176,7 +176,7 @@ public class SiteCheck {
 			// String previousURL = driver.getCurrentUrl();
 			// WebDriverWait wait = new WebDriverWait(driver, 10);
 
-			// System.out.println("Hover eylemi gerceklesirken mouse'u hareket ettirmeyiniz");
+			System.out.println("Hover eylemi gerceklesirken browser kisa sureli gorunmez olur.");
 			builder.moveToElement(driver.findElement(loc1)).moveToElement(driver.findElement(loc2)).click().perform();
 
 			// Browseri ekranda gorunur yapar
