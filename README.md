@@ -23,7 +23,7 @@ n11.com Ürün Araması'ndan ulaşılan ürünlerin Favorilerim'e eklenip kaldı
 
  Name 	   : n11.com Favorilerim,Ürün Favorilere Ekleme ve Kaldırma Test Otomasyonu
  
- Description: Bu class ile http://www.n11.com ' da uygun email ve parola ileüye girişi yapılır
+ Description: Bu otomasyon testi ile http://www.n11.com ' da uygun email ve parola ile üye girişi yapılır
  *  Verilen kelimede arama yapılır. 2. sayfadaki 3. ürünün favori ekle butonuna basılır.
  *  Favori Butonuna basılan ürünün div id ' sinde ürün idsi bulunur , bu id saklanır.
  *  Case Study ödevinde 7.madde belirtilen en üstteki favorilerim linki bulunmamakta, Favorilerim ' e girmek için
@@ -39,15 +39,17 @@ n11.com Ürün Araması'ndan ulaşılan ürünlerin Favorilerim'e eklenip kaldı
  *  Favorilerim sayfasi acilirken, hoverClick methodu kullanilir, bu methodun icinde browserin gorunmez yapilmasi icin
  *  gerekli webdriver.manage ayarlari degistirelerek hover tiklamalar yapilirken browser gorunmez hale getirebilir.
  *  Fakat Hover tiklamalari sırasında Firefox açık iken mouse hiç hareket ettirilmemesi gerekli!
- * 
-     n11testApp.java  --> Uygulamanın çalışması icin main() method bulunduran dosya
-     SiteCheck.java ---> İşlemleri yapan class ve methodları barındıran dosya
-     TestSiteCheck.java --> SiteCheck classının JUnit @Testlerini içinde bulunduran dosya
-      
-  # KURULUM : Dosyalar Eclipse IDE ' ye Import edilerek veya Maven ile install ederek calisabilir.
- * Bir klasöre 1. pom.xml , 2. "src" klaösrü ve 3. "geckodriver.exe" yi yerleştirin.
- * maven kurulu olması şartıyla,  "mvn -install" komutuyla pom.xml ' nin bulunduğu  klasörü içinde target klasörünün altında   
- * "n11favtest-1-jar-with-dependencies.jar" isimli çalıştırabilir bir .jar oluşturulur.  
  
-  # "java -jar target/n11favtest-1-jar-with-dependencies.jar"  komutuyla çalıştırılır.
+# DOSYALAR
+
+* n11testApp.java  --> Uygulamanın çalışması icin main() method bulunduran dosya
+* SiteCheck.java ---> İşlemleri yapan class ve methodları barındıran dosya
+* TestSiteCheck.java --> SiteCheck classının JUnit @Testlerini içinde bulunduran dosya
+      
+# KURULUM : Dosyalar Eclipse IDE ' ye Import edilerek veya Maven ile install ederek calisabilir.
+* MAVEN INSTALL : Bir klasöre 1. pom.xml , 2. "src" klaösrü ve 3. "geckodriver.exe" yi yerleştirin.
+* maven kurulu olması şartıyla,  "mvn -install" komutuyla pom.xml ' nin bulunduğu  klasörü içinde target klasörünün altında   
+* "n11favtest-1-jar-with-dependencies.jar" isimli çalıştırabilir bir .jar oluşturulur.  
+ 
+ # "java -jar target/n11favtest-1-jar-with-dependencies.jar"  komutuyla çalıştırılır.
   
